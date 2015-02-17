@@ -33,25 +33,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
-                                <rect key="frame" x="20" y="292" width="560" height="17"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NvK-mF-LJc">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="BTY-5H-ThZ"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="It3-a2-Wot">
+                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0XM-y9-sOw" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" constant="20" symbolic="YES" id="Tsc-yG-G1q"/>
-                            <constraint firstItem="0XM-y9-sOw" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="jWN-iV-94e"/>
-                            <constraint firstAttribute="trailing" secondItem="0XM-y9-sOw" secondAttribute="trailing" constant="20" symbolic="YES" id="tHV-ZD-HQj"/>
+                            <constraint firstItem="NvK-mF-LJc" firstAttribute="top" secondItem="svH-Pt-448" secondAttribute="top" id="9ZZ-N7-9V3"/>
+                            <constraint firstItem="It3-a2-Wot" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="DFV-Nb-TFH"/>
+                            <constraint firstAttribute="bottom" secondItem="It3-a2-Wot" secondAttribute="bottom" id="PnI-aq-MQO"/>
+                            <constraint firstItem="NvK-mF-LJc" firstAttribute="width" secondItem="svH-Pt-448" secondAttribute="width" id="WRl-8O-V7x"/>
+                            <constraint firstItem="NvK-mF-LJc" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" id="avx-Pn-22o"/>
+                            <constraint firstItem="It3-a2-Wot" firstAttribute="top" secondItem="NvK-mF-LJc" secondAttribute="bottom" id="kom-cD-uRI"/>
+                            <constraint firstItem="NvK-mF-LJc" firstAttribute="width" secondItem="It3-a2-Wot" secondAttribute="width" id="qLN-XZ-aG6"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
-                        <outlet property="detailDescriptionLabel" destination="0XM-y9-sOw" id="deQ-Na-JPF"/>
+                        <outlet property="messageImageView" destination="NvK-mF-LJc" id="6bG-20-M59"/>
+                        <outlet property="messageTextView" destination="It3-a2-Wot" id="Yrv-vm-R0B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
@@ -75,7 +86,7 @@
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
-                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" sceneMemberID="viewController">
+                <tableViewController title="Master" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="TimeLineTableViewController" customModule="ExchangeOGram" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +123,7 @@
                     <navigationItem key="navigationItem" title="Timeline" id="Zdf-7t-Un8">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FxX-m5-XIX">
                             <connections>
-                                <segue destination="9Mp-Hk-9dl" kind="presentation" identifier="addMessage" modalPresentationStyle="pageSheet" id="RWJ-Ip-qaj"/>
+                                <segue destination="9Mp-Hk-9dl" kind="presentation" identifier="sendMessage" modalPresentationStyle="pageSheet" id="RWJ-Ip-qaj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -121,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="709" y="-630"/>
         </scene>
-        <!--View Controller-->
+        <!--Send Image View Controller-->
         <scene sceneID="LED-0Y-nlJ">
             <objects>
-                <viewController id="9Mp-Hk-9dl" sceneMemberID="viewController">
+                <viewController id="9Mp-Hk-9dl" customClass="SendImageViewController" customModule="ExchangeOGram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1eP-1o-xcT"/>
                         <viewControllerLayoutGuide type="bottom" id="Kew-9r-hGD"/>
@@ -142,6 +153,9 @@
                                             <color key="titleColor" red="0.94509803920000002" green="0.0" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="dismissVC:" destination="9Mp-Hk-9dl" eventType="touchUpInside" id="VF2-sf-nKe"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GB-fa-w41">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -168,6 +182,9 @@
                                             <color key="titleColor" red="0.94509803920000002" green="0.0" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendImage:" destination="9Mp-Hk-9dl" eventType="touchUpInside" id="bWj-ES-OXi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zO3-QH-atz">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -175,6 +192,9 @@
                                             <color key="titleColor" red="0.94509803920000002" green="0.0" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendImage:" destination="9Mp-Hk-9dl" eventType="touchUpInside" id="G1g-Qk-Us6"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your thoughts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAG-U0-aCW">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -213,20 +233,20 @@
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="NdP-IJ-ldu"/>
-                                        <exclude reference="RtA-aN-hsa"/>
-                                        <exclude reference="s3S-Ap-HFC"/>
-                                        <exclude reference="7fG-Jz-Pq4"/>
-                                        <exclude reference="zaw-PL-aMs"/>
-                                        <exclude reference="dOh-WG-jLi"/>
-                                        <exclude reference="qZt-kr-CB7"/>
                                         <exclude reference="ESY-Id-fho"/>
                                         <exclude reference="Q8N-x7-NUM"/>
                                         <exclude reference="U6c-Z1-cQF"/>
                                         <exclude reference="bsb-oM-99A"/>
+                                        <exclude reference="RtA-aN-hsa"/>
+                                        <exclude reference="s3S-Ap-HFC"/>
                                         <exclude reference="IPS-p0-I2y"/>
                                         <exclude reference="VQh-yI-wCr"/>
                                         <exclude reference="o0M-01-0eA"/>
                                         <exclude reference="vyi-6d-Lmg"/>
+                                        <exclude reference="7fG-Jz-Pq4"/>
+                                        <exclude reference="zaw-PL-aMs"/>
+                                        <exclude reference="dOh-WG-jLi"/>
+                                        <exclude reference="qZt-kr-CB7"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=regular">
@@ -237,10 +257,6 @@
                                     <mask key="constraints">
                                         <include reference="NdP-IJ-ldu"/>
                                         <exclude reference="veX-KB-pOg"/>
-                                        <include reference="dOh-WG-jLi"/>
-                                        <exclude reference="mdW-il-vlJ"/>
-                                        <include reference="qZt-kr-CB7"/>
-                                        <exclude reference="qsP-eN-jl5"/>
                                         <exclude reference="ESY-Id-fho"/>
                                         <include reference="Q8N-x7-NUM"/>
                                         <exclude reference="U6c-Z1-cQF"/>
@@ -249,6 +265,10 @@
                                         <include reference="VQh-yI-wCr"/>
                                         <include reference="o0M-01-0eA"/>
                                         <exclude reference="vyi-6d-Lmg"/>
+                                        <include reference="dOh-WG-jLi"/>
+                                        <exclude reference="mdW-il-vlJ"/>
+                                        <include reference="qZt-kr-CB7"/>
+                                        <exclude reference="qsP-eN-jl5"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -286,13 +306,9 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoDummy" translatesAutoresizingMaskIntoConstraints="NO" id="e47-6c-ato">
+                            <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoDummy" translatesAutoresizingMaskIntoConstraints="NO" id="e47-6c-ato">
                                 <rect key="frame" x="0.0" y="317" width="600" height="284"/>
                             </imageView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OUI-tB-1e4">
-                                <rect key="frame" x="0.0" y="315" width="600" height="2"/>
-                                <color key="backgroundColor" red="0.94509803921568625" green="0.0" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </progressView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3F2-5J-o8V">
                                 <rect key="frame" x="0.0" y="251" width="600" height="66"/>
                                 <subviews>
@@ -358,6 +374,10 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OUI-tB-1e4">
+                                <rect key="frame" x="0.0" y="315" width="600" height="2"/>
+                                <color key="tintColor" red="0.94509803920000002" green="0.0" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509803921567" green="0.68627450980392157" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -409,6 +429,10 @@
                                 <exclude reference="BYI-gj-SoP"/>
                                 <exclude reference="JfP-xx-2dw"/>
                                 <exclude reference="exC-lX-tfN"/>
+                                <exclude reference="0TN-qE-Aoo"/>
+                                <exclude reference="BEH-XZ-aIo"/>
+                                <exclude reference="Mcy-C8-dfY"/>
+                                <exclude reference="ld3-MO-NaO"/>
                                 <exclude reference="0Kb-HT-aKf"/>
                                 <exclude reference="DjS-bm-flb"/>
                                 <exclude reference="NzZ-mj-QOj"/>
@@ -418,10 +442,6 @@
                                 <exclude reference="Qlm-6x-YHj"/>
                                 <exclude reference="iKS-6O-ihw"/>
                                 <exclude reference="vAV-mt-jZU"/>
-                                <exclude reference="0TN-qE-Aoo"/>
-                                <exclude reference="BEH-XZ-aIo"/>
-                                <exclude reference="Mcy-C8-dfY"/>
-                                <exclude reference="ld3-MO-NaO"/>
                                 <exclude reference="9ef-BB-RPs"/>
                                 <exclude reference="Nx6-DM-bBs"/>
                                 <exclude reference="OaT-J4-cFX"/>
@@ -441,6 +461,13 @@
                                 <exclude reference="WV2-WQ-xxf"/>
                                 <exclude reference="exC-lX-tfN"/>
                                 <exclude reference="uW7-yc-Nxm"/>
+                                <include reference="0TN-qE-Aoo"/>
+                                <exclude reference="4gF-0n-2dW"/>
+                                <include reference="BEH-XZ-aIo"/>
+                                <exclude reference="MFj-69-XGb"/>
+                                <include reference="Mcy-C8-dfY"/>
+                                <exclude reference="Yww-34-uGX"/>
+                                <exclude reference="ld3-MO-NaO"/>
                                 <include reference="0Kb-HT-aKf"/>
                                 <include reference="DjS-bm-flb"/>
                                 <exclude reference="IaT-VJ-kEZ"/>
@@ -455,13 +482,6 @@
                                 <include reference="Qlm-6x-YHj"/>
                                 <exclude reference="um9-ms-z8E"/>
                                 <include reference="vAV-mt-jZU"/>
-                                <include reference="0TN-qE-Aoo"/>
-                                <exclude reference="4gF-0n-2dW"/>
-                                <include reference="BEH-XZ-aIo"/>
-                                <exclude reference="MFj-69-XGb"/>
-                                <include reference="Mcy-C8-dfY"/>
-                                <exclude reference="Yww-34-uGX"/>
-                                <exclude reference="ld3-MO-NaO"/>
                                 <include reference="9ef-BB-RPs"/>
                                 <exclude reference="BDP-Aa-DuX"/>
                                 <exclude reference="Kcs-gA-nXX"/>
@@ -477,6 +497,11 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="e47-6c-ato" id="UY2-oz-GkJ"/>
+                        <outlet property="messageTextView" destination="aTe-bk-MvF" id="LpL-6E-hXh"/>
+                        <outlet property="progressBar" destination="OUI-tB-1e4" id="N1F-n0-Rxl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h2c-xK-9d1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

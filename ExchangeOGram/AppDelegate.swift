@@ -15,11 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.0, green: 0.76, blue: 0.79, alpha: 1)
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        UIButton.appearance().tintColor = UIColor.whiteColor()
+        
         // Override point for customization after application launch.
         let splitViewController = self.window!.rootViewController as UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
         navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
+        
+        Parse.setApplicationId("lC6VQelpD1ZTUAVCuc0PZPbNrhAZLR8UVqX2IJaT", clientKey: "3gk72gkQBnNso4smhZI7CgNDWZMuRs9xdMrDdaCi")
+        
         return true
     }
 
